@@ -1,0 +1,1246 @@
+                                                
+                                       
+                                           
+                                                   
+
+ 
+.glass-tile,
+.bento-card {
+    position: relative;
+    overflow: hidden;
+}
+
+                                                                          
+                                                                     
+                                                                             
+.glass-tile,
+.bento-card {
+    transition: transform 0.22s var(--ease-out),
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.glass-tile::after,
+.bento-card::after {
+    transition: left 0.6s ease;
+}
+
+.glass-tile::after,
+.bento-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 204, 0, 0.2) 50%,
+            transparent 100%);
+    z-index: 10;
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.glass-tile:hover::after,
+.bento-card:hover::after {
+    left: 100%;
+}
+
+ 
+.glass-tile:hover,
+.bento-card:hover {
+    background: linear-gradient(135deg,
+            rgba(255, 215, 0, 0.85) 0%,
+            rgba(255, 165, 0, 0.75) 100%);
+    border-color: rgba(255, 204, 0, 0.8);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 204, 0, 0.6),
+        0 0 60px rgba(255, 204, 0, 0.3),
+        inset 0 0 40px rgba(255, 204, 0, 0.1);
+}
+
+ 
+.glass-tile:hover .tile-title,
+.bento-card:hover .card-title {
+    color: #000;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.glass-tile:hover .tile-subtitle,
+.bento-card:hover .card-body {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.glass-tile:hover .tile-footer {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+ 
+.glass-tile:hover .cta-button,
+.bento-card:hover .cta-btn-bento {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.glass-tile:hover .lineup-btn {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.glass-tile:hover .filter-chip {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.glass-tile:hover .add-btn {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.4);
+}
+
+ 
+.bento-card:hover .pill-label {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.25);
+    color: #000;
+}
+
+.bento-card:hover .pill-label.pill-live {
+    background: rgba(200, 0, 0, 0.15);
+    border-color: rgba(200, 0, 0, 0.3);
+    color: #8b0000;
+}
+
+ 
+.bento-card:hover .micro-dot {
+    background: #000;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+ 
+.glass-tile:hover .lineup-name,
+.glass-tile:hover .lineup-formation,
+.glass-tile:hover .community-name,
+.glass-tile:hover .formation-num,
+.glass-tile:hover .card-name-large,
+.glass-tile:hover .trending-player,
+.glass-tile:hover .watchlist-name,
+.glass-tile:hover .setting-label,
+.glass-tile:hover .legal-link,
+.glass-tile:hover .credits-item,
+.glass-tile:hover .credits-item strong {
+    color: #000;
+}
+
+.glass-tile:hover .lineup-meta,
+.glass-tile:hover .community-stats,
+.glass-tile:hover .formation-trend,
+.glass-tile:hover .card-position,
+.glass-tile:hover .trending-rank,
+.glass-tile:hover .trending-badge,
+.glass-tile:hover .watchlist-price,
+.glass-tile:hover .volume-value {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+ 
+.glass-tile:hover .lineup-item,
+.glass-tile:hover .community-item,
+.glass-tile:hover .formation-badge,
+.glass-tile:hover .trending-item,
+.glass-tile:hover .watchlist-item,
+.glass-tile:hover .player-card-mini {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.glass-tile:hover .card-rating-large {
+    color: #000;
+}
+
+ 
+.bento-card:hover .activity-main,
+.bento-card:hover .featured-name,
+.bento-card:hover .mini-stat-label {
+    color: #000;
+}
+
+.bento-card:hover .activity-time,
+.bento-card:hover .featured-position {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.bento-card:hover .activity-item {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.bento-card:hover .featured-rating,
+.bento-card:hover .mini-stat-val,
+.bento-card:hover .player-rating {
+    color: #000;
+}
+
+.bento-card:hover .stat-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.bento-card:hover .stat-bar {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.bento-card:hover .stat-fill {
+    background: linear-gradient(90deg, #000, rgba(0, 0, 0, 0.6));
+}
+
+.bento-card:hover .stat-val {
+    color: #000;
+}
+
+.bento-card:hover .preview-tag {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.bento-card:hover .mini-stat {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.bento-card:hover .pitch-bg {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.bento-card:hover .pitch-marking {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bento-card:hover .player-mini {
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.bento-card:hover .player-name {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+ 
+.glass-tile:hover .search-input {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.glass-tile:hover .search-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+ 
+.glass-tile:hover .setting-select {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+ 
+.glass-tile.cta-tile:hover {
+    border-style: dashed;
+    border-color: rgba(0, 0, 0, 0.4);
+}
+
+.glass-tile:hover .cta-icon svg {
+    stroke: #000;
+}
+
+
+                                                
+                                           
+                                                   
+.play-grid-image {
+    position: relative;
+    background:
+        radial-gradient(120% 90% at 88% 15%, rgba(255, 204, 0, 0.18) 0%, rgba(255, 204, 0, 0) 55%),
+        linear-gradient(100deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 42%, rgba(8, 12, 22, 0.62) 66%, rgba(8, 12, 22, 0.9) 100%);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ 
+.play-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -4%;
+    bottom: -2%;
+    left: 42%;
+    background: url('/frontend/assets/images/ui/playgrid1.png') no-repeat;
+    background-size: auto 104%;
+    background-position: right bottom;
+    z-index: 1;
+    opacity: 0.95;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.5));
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+ 
+.play-grid-image:hover::before {
+    opacity: 1;
+    transform: translateX(6px) scale(1.01);
+}
+
+ 
+.play-grid-image .tile-title,
+.play-grid-image .tile-subtitle,
+.play-grid-image .cta-button {
+    position: relative;
+    z-index: 2;
+}
+
+.play-grid-image .tile-title {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.8);
+    max-width: 45%;
+}
+
+.play-grid-image .tile-subtitle,
+.play-grid-image .cta-button {
+    max-width: 45%;
+}
+
+@media (max-width: 991px) {
+    .play-grid-image::before {
+        left: 40%;
+        right: -10%;
+        background-size: auto 100%;
+    }
+
+    .play-grid-image .tile-title,
+    .play-grid-image .tile-subtitle,
+    .play-grid-image .cta-button {
+        max-width: 56%;
+    }
+}
+
+@media (max-width: 640px) {
+    .play-grid-image::before {
+        left: 32%;
+        right: -18%;
+        background-size: auto 90%;
+        opacity: 0.85;
+    }
+
+    .play-grid-image .tile-title,
+    .play-grid-image .tile-subtitle,
+    .play-grid-image .cta-button {
+        max-width: 72%;
+    }
+}
+
+                                                
+                                      
+                                                    
+.lineup-grid-image {
+    position: relative;
+    background:
+        radial-gradient(105% 90% at 84% 14%, rgba(255, 204, 0, 0.16) 0%, rgba(255, 204, 0, 0) 58%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.95) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.64) 70%, rgba(8, 12, 22, 0.86) 100%);
+}
+
+.lineup-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2%;
+    right: -4%;
+    bottom: -4%;
+    left: 55%;
+    background: url('/frontend/assets/images/ui/mylineupgrid.png') no-repeat right center;
+    background-size: auto 110%;
+    opacity: 0.94;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.lineup-grid-image:hover::before {
+    opacity: 1;
+    transform: translateX(5px) scale(1.01);
+}
+
+.lineup-grid-image .tile-title,
+.lineup-grid-image .lineup-list {
+    position: relative;
+    z-index: 2;
+    max-width: 54%;
+}
+
+@media (max-width: 991px) {
+    .lineup-grid-image::before {
+        left: 40%;
+        right: -8%;
+        background-size: auto 104%;
+    }
+
+    .lineup-grid-image .tile-title,
+    .lineup-grid-image .lineup-list {
+        max-width: 58%;
+    }
+}
+
+@media (max-width: 640px) {
+    .lineup-grid-image::before {
+        left: 30%;
+        right: -18%;
+        background-size: auto 92%;
+        opacity: 0.86;
+    }
+
+    .lineup-grid-image .tile-title,
+    .lineup-grid-image .lineup-list {
+        max-width: 72%;
+    }
+}
+
+                                                
+                                         
+                                                   
+.division-grid-image {
+    position: relative;
+    background:
+        radial-gradient(100% 85% at 80% 20%, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0) 62%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 46%, rgba(8, 12, 22, 0.66) 74%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.division-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/mydivisiongrid-hover.png') no-repeat right -40px center;
+    background-size: auto 88%;
+    opacity: 0.72;  
+    z-index: 1;
+    filter: saturate(1.05) contrast(1.02);
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.division-grid-image:hover::before {
+    opacity: 0.82;
+    transform: scale(1.03);
+}
+
+
+.division-grid-image .tile-title,
+.division-grid-image .tile-subtitle,
+.division-grid-image .cta-button {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+@media (max-width: 991px) {
+
+    .division-grid-image .tile-title,
+    .division-grid-image .tile-subtitle,
+    .division-grid-image .cta-button {
+        max-width: 68%;
+    }
+}
+
+@media (max-width: 640px) {
+    .division-grid-image::before {
+        background-position: right 18% center;
+        background-size: auto 82%;
+        opacity: 0.65;
+    }
+
+    .division-grid-image .tile-title,
+    .division-grid-image .tile-subtitle,
+    .division-grid-image .cta-button {
+        max-width: 78%;
+    }
+}
+
+                                                
+                                          
+                                                   
+.challenges-grid-image {
+    position: relative;
+    background:
+        radial-gradient(100% 86% at 84% 18%, rgba(255, 204, 0, 0.14) 0%, rgba(255, 204, 0, 0) 62%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.66) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.challenges-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/challengesgrid.png') no-repeat right center;
+    background-size: 85%;
+    background-position: right 60%;
+    opacity: 0.86;
+    z-index: 1;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.challenges-grid-image:hover::before {
+    opacity: 0.95;
+    transform: translateX(4px) scale(1.01);
+}
+
+.challenges-grid-image .tile-title,
+.challenges-grid-image .tile-subtitle,
+.challenges-grid-image .cta-button {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+@media (max-width: 991px) {
+
+    .challenges-grid-image .tile-title,
+    .challenges-grid-image .tile-subtitle,
+    .challenges-grid-image .cta-button {
+        max-width: 68%;
+    }
+}
+
+@media (max-width: 640px) {
+    .challenges-grid-image::before {
+        background-position: right center;
+        background-size: auto 86%;
+        opacity: 0.8;
+    }
+
+    .challenges-grid-image .tile-title,
+    .challenges-grid-image .tile-subtitle,
+    .challenges-grid-image .cta-button {
+        max-width: 78%;
+    }
+}
+                                                
+                                          
+                                                   
+.My-player-grid-image{
+    position: relative;
+    background:
+        radial-gradient(100% 88% at 86% 16%, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.64) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.My-player-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/Liverpool\ FC\ Team\ -\ FootyRenders.png') no-repeat right center;
+    background-size: auto 100%;
+    opacity: 0.86;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.My-player-grid-image:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.My-player-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+.My-player-grid-image .search-input,
+.My-player-grid-image .filters-preview {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .My-player-grid-image::before {
+        background-position: 72% center;
+        background-size: auto 86%;
+        opacity: 0.8;
+    }
+
+    .My-player-grid-image .tile-title {
+        max-width: 78%;
+    }
+}
+                                                
+                                            
+                                                   
+.All-player-grid-image{
+    position: relative;
+    background:
+        radial-gradient(100% 88% at 86% 16%, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.64) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.All-player-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/FIFA\ 17\ Ultimate\ Team\ Cover\ Stars\ -\ FootyRenders.png') no-repeat right center;
+    background-size: auto 97%;
+    opacity: 0.86;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.All-player-grid-image:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.All-player-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+.All-player-grid-image .search-input,
+.All-player-grid-image .filters-preview {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .All-player-grid-image::before {
+        background-position: 72% center;
+        background-size: auto 86%;
+        opacity: 0.8;
+    }
+
+    .All-player-grid-image .tile-title {
+        max-width: 78%;
+    }
+}
+                                                
+                                          
+                                                   
+.search-player-grid-image {
+    position: relative;
+    background:
+        radial-gradient(100% 88% at 86% 16%, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.64) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.search-player-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/searchplayer.png') no-repeat right center;
+    background-size: auto 97%;
+    opacity: 0.86;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.search-player-grid-image:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.search-player-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+.search-player-grid-image .search-input,
+.search-player-grid-image .filters-preview {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .search-player-grid-image::before {
+        background-position: 72% center;
+        background-size: auto 86%;
+        opacity: 0.8;
+    }
+
+    .search-player-grid-image .tile-title {
+        max-width: 78%;
+    }
+}
+                                                
+                   
+                                                             
+                                                   
+.chest-pack-tile {
+    --chest-accent: #f5f5f5;
+    --chest-subtitle: rgba(255, 255, 255, 0.72);
+    --chest-backdrop: none;
+    --chest-pack: none;
+    --chest-focus: rgba(255, 255, 255, 0.12);
+    --chest-glow: rgba(255, 255, 255, 0.16);
+    --pack-position: 88% 50%;
+    --pack-size: auto 66%;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    background-image:
+        linear-gradient(90deg, rgba(7, 10, 18, 0.44) 0%, rgba(7, 10, 18, 0.28) 24%, rgba(7, 10, 18, 0.1) 38%, rgba(7, 10, 18, 0) 52%),
+        radial-gradient(circle at 76% 50%, var(--chest-focus) 0%, rgba(255, 255, 255, 0) 34%),
+        var(--chest-backdrop);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.chest-pack-tile::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-image: var(--chest-pack);
+    background-repeat: no-repeat;
+    background-position: var(--pack-position);
+    background-size: var(--pack-size);
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.42));
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.35s ease, filter 0.35s ease, opacity 0.25s ease;
+}
+
+.chest-pack-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.chest-pack-copy {
+    max-width: 34%;
+}
+
+.chest-pack-tile .tile-title {
+    margin-bottom: 6px;
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    font-size: clamp(21px, 1.65vw, 28px);
+    letter-spacing: 0.6px;
+    color: var(--chest-accent);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.chest-pack-subtitle {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    color: var(--chest-subtitle);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+
+.chest-pack-tile .tile-arrow {
+    position: absolute;
+    z-index: 2;
+    right: 18px;
+    bottom: 14px;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    color: var(--chest-accent);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.glass-tile.chest-pack-tile:hover {
+    background-image:
+        linear-gradient(90deg, rgba(6, 9, 16, 0.34) 0%, rgba(6, 9, 16, 0.2) 24%, rgba(6, 9, 16, 0.08) 38%, rgba(6, 9, 16, 0) 54%),
+        radial-gradient(circle at 76% 50%, var(--chest-focus) 0%, rgba(255, 255, 255, 0) 38%),
+        var(--chest-backdrop);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.52),
+        0 0 28px var(--chest-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.chest-pack-tile:hover::before {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.48));
+}
+
+.glass-tile.chest-pack-tile:hover .tile-title,
+.glass-tile.chest-pack-tile:hover .chest-pack-subtitle,
+.glass-tile.chest-pack-tile:hover .tile-arrow {
+    color: inherit;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.48);
+}
+
+.glass-tile.chest-pack-tile:hover .tile-title,
+.glass-tile.chest-pack-tile:hover .tile-arrow {
+    color: var(--chest-accent);
+}
+
+.glass-tile.chest-pack-tile:hover .chest-pack-subtitle {
+    color: var(--chest-subtitle);
+}
+
+.bronze-grid-image {
+    --chest-accent: #e3a061;
+    --chest-subtitle: rgba(255, 229, 208, 0.78);
+    --chest-backdrop: url('/frontend/assets/images/ui/bronzegridcards.png');
+    --chest-pack: url('/frontend/assets/images/ui/Gemini_Generated_Image_895eev895eev895e\ \(1\).png');
+    --chest-focus: rgba(240, 157, 84, 0.2);
+    --chest-glow: rgba(197, 113, 39, 0.26);
+    --pack-position: 95% 50%;
+    --pack-size: auto 65%;
+}
+
+.silver-grid-image {
+    --chest-accent: #f2f4f8;
+    --chest-subtitle: rgba(235, 239, 244, 0.78);
+    --chest-backdrop: url('/frontend/assets/images/ui/silvergridcard.png');
+    --chest-pack: url('/frontend/assets/images/ui/Gemini_Generated_Image_l8jbs9l8jbs9l8jb\ \(1\)\ \(1\).png');
+    --chest-focus: rgba(229, 235, 244, 0.18);
+    --chest-glow: rgba(181, 191, 205, 0.24);
+    --pack-position: 95% 50%;
+    --pack-size: auto 65%;
+}
+
+.gold-grid-image {
+    --chest-accent: #ffd451;
+    --chest-subtitle: rgba(255, 245, 196, 0.84);
+    --chest-backdrop: url('/frontend/assets/images/ui/goldgridcard.png');
+    --chest-pack: url('/frontend/assets/images/ui/Gemini_Generated_Image_bm31l3bm31l3bm31\ \(1\).png');
+    --chest-focus: rgba(255, 223, 112, 0.24);
+    --chest-glow: rgba(255, 206, 70, 0.28);
+    --pack-position: 95% 50%;
+    --pack-size: auto 65%;
+}
+
+.special-world-cup-grid-image {
+    --chest-accent: #ffe16a;
+    --chest-subtitle: rgba(255, 247, 202, 0.86);
+    --chest-backdrop: url('/frontend/assets/images/ui/specialcardsgrid.png');
+    --chest-pack: url('/frontend/assets/images/ui/special.png');
+    --chest-focus: rgba(255, 215, 68, 0.24);
+    --chest-glow: rgba(255, 193, 7, 0.3);
+    --pack-position: 94% 50%;
+    --pack-size: auto 76%;
+}
+
+.special-world-cup-grid-image .chest-pack-copy {
+    max-width: 38%;
+}
+
+.special-world-cup-grid-image .tile-arrow {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.chest-pack-tile .search-input,
+.chest-pack-tile .filters-preview {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .chest-pack-copy {
+        max-width: 52%;
+    }
+
+    .chest-pack-tile::before {
+        background-position: 92% 52%;
+        background-size: auto 60%;
+    }
+
+    .chest-pack-tile .tile-title {
+        font-size: clamp(18px, 6.4vw, 24px);
+    }
+
+    .chest-pack-subtitle {
+        font-size: 11px;
+    }
+
+    .chest-pack-tile .tile-arrow {
+        font-size: 16px;
+    }
+}
+                                                
+                                           
+                                                   
+.Create-line-grid-imag{
+    position: relative;
+    background:
+        radial-gradient(100% 88% at 86% 16%, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 44%, rgba(8, 12, 22, 0.64) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.Create-line-grid-imag::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/image-removebg-preview.png') no-repeat right center;
+    background-size: auto 78%;
+    opacity: 0.86;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.Create-line-grid-imag:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.Create-line-grid-imag .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 62%;
+}
+
+.Create-line-grid-imag .search-input,
+.Create-line-grid-imag .filters-preview {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .Create-line-grid-imag::before {
+        background-position: 72% center;
+        background-size: auto 86%;
+        opacity: 0.8;
+    }
+
+    .Create-line-grid-imag .tile-title {
+        max-width: 78%;
+    }
+}
+                                                
+                                     
+                                                   
+#settings-section .settings-group,
+#settings-section .legal-list,
+#settings-section .credits-content {
+    display: none;
+}
+
+                                                
+                                     
+                                                   
+.general-settings-grid-image,
+.sound-settings-grid-image,
+.legal-grid-image,
+.credits-grid-image {
+    position: relative;
+    background:
+        linear-gradient(105deg, rgba(8, 12, 22, 0.94) 0%, rgba(8, 12, 22, 0.78) 42%, rgba(8, 12, 22, 0.42) 70%, rgba(8, 12, 22, 0.72) 100%);
+}
+
+.general-settings-grid-image::before,
+.sound-settings-grid-image::before,
+.legal-grid-image::before,
+.credits-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.84;
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.general-settings-grid-image:hover::before,
+.sound-settings-grid-image:hover::before,
+.legal-grid-image:hover::before,
+.credits-grid-image:hover::before {
+    transform: scale(1.02);
+    opacity: 0.92;
+}
+
+.general-settings-grid-image .tile-title,
+.sound-settings-grid-image .tile-title,
+.legal-grid-image .tile-title,
+.credits-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 72%;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.95);
+}
+
+.general-settings-grid-image::before {
+    background-image: url('/frontend/assets/images/ui/genralsettingsgrid.png');
+     
+    inset: 0 0 0 40%;
+    background-size: cover;
+    background-position: right center;
+    opacity: 0.9;
+}
+
+.sound-settings-grid-image::before {
+    background-image: url('/frontend/assets/images/ui/soundsettingsgrid1.png');
+    inset: 0;
+    background-size: auto 100%;
+     
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.legal-grid-image::before {
+    background-image: url('/frontend/assets/images/ui/legalgrid.png');
+    background-position: center;
+    background-size: 85%;
+}
+
+.credits-grid-image::before {
+    background-image: url('/frontend/assets/images/ui/creditsgrid.png');
+    background-position: center;
+}
+
+@media (max-width: 640px) {
+
+    .general-settings-grid-image .tile-title,
+    .sound-settings-grid-image .tile-title,
+    .legal-grid-image .tile-title,
+    .credits-grid-image .tile-title {
+        max-width: 84%;
+    }
+
+    .general-settings-grid-image::before {
+        inset: 0 0 0 32%;
+        background-size: cover;
+        background-position: right center;
+    }
+
+    .sound-settings-grid-image::before {
+        inset: 0;
+        background-size: auto 86%;
+        background-position: -6% 76%;
+    }
+}
+
+                                                
+                    
+                                                   
+                                                   
+.mymatches-grid-image,
+.trending-players-grid-image,
+.trending-lineups-grid-image {
+    position: relative;
+    background:
+        radial-gradient(100% 85% at 84% 18%, rgba(255, 204, 0, 0.14) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 45%, rgba(8, 12, 22, 0.62) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.mymatches-grid-image::before,
+.trending-players-grid-image::before,
+.trending-lineups-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.8;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.mymatches-grid-image:hover::before,
+.trending-players-grid-image:hover::before,
+.trending-lineups-grid-image:hover::before {
+    opacity: 0.95;
+    transform: scale(1.02);
+}
+
+.mymatches-grid-image .tile-title,
+.mymatches-grid-image .tile-subtitle,
+.mymatches-grid-image .cta-button,
+.trending-players-grid-image .tile-title,
+.trending-lineups-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+}
+
+.mymatches-grid-image .tile-title,
+.mymatches-grid-image .tile-subtitle,
+.mymatches-grid-image .cta-button,
+.trending-players-grid-image .tile-title,
+.trending-lineups-grid-image .tile-title {
+    max-width: 62%;
+}
+
+ 
+.trending-players-grid-image .trending-list,
+.trending-lineups-grid-image .trending-formations {
+    display: none;
+}
+
+.mymatches-grid-image::before {
+    inset: 0;
+    background-image: url('/frontend/assets/images/ui/mymatchesgrid.jpg');
+    background-size: cover;
+    background-position: 68% center;
+}
+
+ 
+.glass-tile.mymatches-grid-image:hover .tile-title {
+    color: #ffffff !important;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.95) !important;
+}
+
+.glass-tile.mymatches-grid-image:hover .tile-subtitle {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+.glass-tile.mymatches-grid-image:hover .cta-button {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+ 
+.explore-lineups-grid-image {
+    position: relative;
+    background:
+        radial-gradient(100% 85% at 84% 18%, rgba(255, 204, 0, 0.13) 0%, rgba(255, 204, 0, 0) 60%),
+        linear-gradient(102deg, rgba(8, 12, 22, 0.96) 0%, rgba(8, 12, 22, 0.9) 45%, rgba(8, 12, 22, 0.62) 72%, rgba(8, 12, 22, 0.88) 100%);
+}
+
+.explore-lineups-grid-image::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: url('/frontend/assets/images/ui/exploreotherlineupsgrid.png') no-repeat center;
+    background-size: cover;
+    opacity: 0.82;
+    z-index: 1;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.explore-lineups-grid-image:hover::before {
+    opacity: 0.92;
+    transform: scale(1.02);
+}
+
+.explore-lineups-grid-image .tile-title {
+    position: relative;
+    z-index: 2;
+    max-width: 72%;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.95);
+}
+
+.explore-lineups-grid-image .community-lineups {
+    display: none;
+}
+
+.trending-players-grid-image::before {
+    top: -2%;
+    right: -8%;
+    bottom: -4%;
+    left: 46%;
+    background-image: url('/frontend/assets/images/ui/trendingplayersgrid.png');
+    background-size: auto 100%;
+    background-position: right bottom;
+}
+
+.trending-lineups-grid-image::before {
+    inset: 0;
+    background-image: url('/frontend/assets/images/ui/trendinglineupsgrid.png');
+    background-size: contain;
+    background-position: center bottom;
+}
+
+@media (max-width: 991px) {
+
+    .mymatches-grid-image .tile-title,
+    .mymatches-grid-image .tile-subtitle,
+    .mymatches-grid-image .cta-button,
+    .trending-players-grid-image .tile-title,
+    .trending-lineups-grid-image .tile-title {
+        max-width: 70%;
+    }
+
+    .trending-players-grid-image::before {
+        left: 42%;
+        right: -10%;
+        background-size: auto 94%;
+    }
+
+    .trending-lineups-grid-image::before {
+        background-size: contain;
+        background-position: center bottom;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .mymatches-grid-image .tile-title,
+    .mymatches-grid-image .tile-subtitle,
+    .mymatches-grid-image .cta-button,
+    .trending-players-grid-image .tile-title,
+    .trending-lineups-grid-image .tile-title {
+        max-width: 80%;
+    }
+
+    .trending-players-grid-image::before {
+        left: 34%;
+        right: -18%;
+        background-size: auto 84%;
+        opacity: 0.74;
+    }
+
+    .trending-lineups-grid-image::before {
+        background-size: contain;
+        background-position: center bottom;
+        opacity: 0.74;
+    }
+
+    .mymatches-grid-image::before {
+        background-size: auto 104%;
+        background-position: 62% center;
+        opacity: 0.72;
+    }
+
+    .explore-lineups-grid-image .tile-title {
+        max-width: 84%;
+    }
+}
+
+
+
+
+
+ 
+#play-section .dashboard-grid-simple {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: 320px 360px !important;
+    gap: 28px !important;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ 
+#play-section .dashboard-grid-simple>.tile {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: 100%;
+    min-width: 0;
+}
+
+                                 
+                              
+                                 
+  

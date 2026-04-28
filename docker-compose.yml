@@ -1,0 +1,74 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: footycraft
+      POSTGRES_USER: footycraft
+      POSTGRES_PASSWORD: footycraft
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schema/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U footycraft -d footycraft"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  seed-all:
+    build: .
+    restart: "no"
+    command: ["python3", "/app/scripts/load_all_data.py"]
+    environment:
+      DATABASE_URL: postgresql://footycraft:footycraft@db:5432/footycraft
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+  php:
+    build: .
+    restart: unless-stopped
+    command: ["php", "-S", "0.0.0.0:5000", "/app/backend/php/index.php"]
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql://footycraft:footycraft@db:5432/footycraft
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+  python:
+    build: .
+    restart: unless-stopped
+    working_dir: /app/api
+    command: ["/opt/venv/bin/python3", "app.py"]
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://footycraft:footycraft@db:5432/footycraft
+      PORT: "8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+  adminer:
+    image: adminer:4
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

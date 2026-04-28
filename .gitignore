@@ -1,0 +1,14 @@
+.env
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.pythonlibs/
+.cache/
+.upm/
+.local/
+.agents/
+.argos-packages/
+node_modules/
+.replit
+uv.lock

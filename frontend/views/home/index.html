@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/views/home/css/home.css">
+    <title>FootyCraft</title>
+</head>
+<body>
+
+    <nav class="side-pagination" id="sidePagination">
+        <a href="#home" class="dot active" data-target="home">
+            <span class="dot-tooltip">Home</span>
+        </a>
+        <a href="#about" class="dot" data-target="about">
+            <span class="dot-tooltip">The Craft</span>
+        </a>
+        <a href="#legends-gallery" class="dot" data-target="legends-gallery">
+            <span class="dot-tooltip">Legends</span>
+        </a>
+        <a href="#features" class="dot" data-target="features">
+            <span class="dot-tooltip">Draft Engine</span>
+        </a>
+        <a href="#parallax-showcase" class="dot" data-target="parallax-showcase">
+            <span class="dot-tooltip">Showcase</span>
+        </a>
+        <a href="#arena" class="dot" data-target="arena">
+            <span class="dot-tooltip">Arena</span>
+        </a>
+        <a href="#testimonials" class="dot" data-target="testimonials">
+            <span class="dot-tooltip">Activity</span>
+        </a>
+    </nav>
+
+    <header id="main-header">
+        <nav class="nav-container" id="main-nav">
+            <div class="logo">FootyCraft</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#legends-gallery">Legends</a></li>
+                <li><a href="#about">The Craft</a></li>
+                <li><a href="#features">Draft Engine</a></li>
+                <li><a href="#arena">Arena</a></li>
+                <li><a href="#testimonials">Activity</a></li>
+            </ul>
+            <button class="cta-btn" id="buildSquadBtn">log in</button>
+        </nav>
+    </header>
+
+    <div class="auth-screen" id="authScreen">
+        <div class="auth-card" id="authCard">
+
+            <div class="auth-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    <polyline points="10 17 15 12 10 7"/>
+                    <line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+            </div>
+
+            <h2 class="auth-title">Welcome to FootyCraft</h2>
+            <p class="auth-subtitle">Unlock chests, find legends, and build your dynasty.</p>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabSignIn" onclick="switchTab('signin')">Sign In</button>
+                <button class="auth-tab" id="tabSignUp" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <div class="tab-panel active" id="panelSignIn">
+                <div class="auth-fields">
+                    <div class="auth-input-wrap">
+                        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <input type="email" placeholder="Email" class="auth-input" />
+                    </div>
+                    <div class="auth-input-wrap">
+                        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" placeholder="Password" class="auth-input" id="signinPw" />
+                        <button class="toggle-pw" onclick="togglePw('signinPw', this)" type="button">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <a href="#" class="forgot-pw">Forgot password?</a>
+                </div>
+                <button class="auth-submit-btn">Enter the Pitch</button>
+                <div class="auth-divider"><span>Or continue with</span></div>
+                <div class="auth-socials">
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    </button>
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </button>
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panelSignUp">
+                <div class="auth-fields">
+                    <div class="name-row">
+                        <div class="auth-input-wrap">
+                            <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <input type="text" placeholder="First name" class="auth-input" />
+                        </div>
+                        <div class="auth-input-wrap">
+                            <input type="text" placeholder="Last name" class="auth-input" style="padding-left:14px" />
+                        </div>
+                    </div>
+                    <div class="auth-input-wrap">
+                        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <input type="email" placeholder="Email address" class="auth-input" />
+                    </div>
+                    <div class="auth-input-wrap">
+                        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" placeholder="Create password" class="auth-input" id="signupPw" />
+                        <button class="toggle-pw" onclick="togglePw('signupPw', this)" type="button">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                        </button>
+                    </div>
+                    <div class="auth-input-wrap">
+                        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <input type="password" placeholder="Confirm password" class="auth-input" id="signupPwConfirm" />
+                    </div>
+                </div>
+                <button class="auth-submit-btn">Create My FootyCraft ID</button>
+                <p class="terms-text">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+                <div class="auth-divider"><span>Or sign up with</span></div>
+                <div class="auth-socials">
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    </button>
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </button>
+                    <button class="social-auth-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <button class="auth-cancel" id="cancelAuth">← Back to the Pitch</button>
+        </div>
+    </div>
+
+    <div id="globalVideoBg">
+        <video id="heroVideo" autoplay muted loop playsinline>
+            <source src="/frontend/assets/videos/Fifa_World_Cup_(concept).mp4" type="video/mp4">
+        </video>
+        <div id="videoOverlay"></div>
+    </div>
+
+    <div id="page-content-wrapper">
+
+        
+        <section id="home" class="hero">
+            <button id="muteToggle" class="audio-btn"><span id="muteIcon">🔇</span></button>
+            <div class="hero-content">
+                <div class="badge"></div>
+                <h1>CRAFT YOUR <br><span class="dynamic-txt">DYNASTY</span></h1>
+                <p>Unlock elite player cards from chests, use our AI Assistant to solve tactical puzzles, and prove your brilliance in the ultimate community arena.</p>
+                <div class="hero-btns">
+                    <button class="get-started">Start Your Journey</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE FOOTYCRAFT METHOD (Interactive Logic) -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-intro reveal-text section-header-center">
+                    <h2 class="split-reveal"><span class="t-left" id="aboutTextLeft">Loot the Best.</span> <br><span class="gold-gradient" id="aboutTextRight">Build the Greatest.</span></h2>
+                    <p id="aboutSubtext" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.5);">FootyCraft is where management meets collectability.<br> We give you the tools to scout through AI and the community to back your claims.</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- LEFT COLUMN -->
+                    <div class="about-steps left-steps">
+                        <div class="a-step highlight-card step-1">
+                            <div class="step-number">1.</div>
+                            <div class="step-content">
+                                <strong>LOOT THE BEST</strong>
+                                <p>Scout elite talents and acquire rare player cards from seasonal chests.</p>
+                                <a href="#" class="join-link">SEARCH PACKS</a>
+                            </div>
+                        </div>
+                        <div class="a-step highlight-card step-2">
+                            <div class="step-number">2.</div>
+                            <div class="step-content">
+                                <strong>AI TACTICAL SCOUT</strong>
+                                <p>Use advanced AI to solve formation puzzles and maximize team chemistry.</p>
+                                <a href="#" class="join-link">START ANALYSIS</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual center-visual" id="bounceScene">
+                        <div class="glow-orb"></div>
+                        <img src="/frontend/assets/images/avatars/jumpinghead.png" class="main-player-img" alt="Player Silhouette">
+                        <img src="/frontend/assets/images/avatars/ball.png" id="bounceBall" class="bounce-ball" alt="Soccer Ball">
+                    </div>
+
+
+                    <div class="about-steps right-steps">
+                        <div class="a-step highlight-card step-3">
+                            <div class="step-number">3.</div>
+                            <div class="step-content">
+                                <strong>SOCIAL SHOWDOWN</strong>
+                                <p>Challenge the community in H2H stat comparisons and climb the global ranks.</p>
+                                <a href="#" class="join-link">JOIN ARENA</a>
+                            </div>
+                        </div>
+                        <div class="a-step highlight-card step-4">
+                            <div class="step-number">4.</div>
+                            <div class="step-content">
+                                <strong>CRAFT YOUR LEGACY</strong>
+                                <p>Manage your dynasty, evolve your players, and dominate the FootyCraft arena.</p>
+                                <a href="#" class="join-link">BUILD SQUAD</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="legends-gallery" class="legends-gallery">
+            <div class="section-header-center" id="legendsHeader">
+                <h2><span id="lgTextLeft">MEET THE</span> <br><span class="gold-gradient" id="lgTextRight">SUPREME LEGENDS</span></h2>
+            </div>
+            <div class="options">
+                <div class="option" style="--bg: url('/frontend/assets/images/avatars/cristiano.jpg');" data-name="Cristiano Ronaldo">
+                    <div class="legend-name-toast"><span class="legend-name-text">Cristiano Ronaldo</span></div>
+                </div>
+                <div class="option" style="--bg: url('/frontend/assets/images/avatars/messi.jpg');" data-name="Lionel Messi">
+                    <div class="legend-name-toast"><span class="legend-name-text">Lionel Messi</span></div>
+                </div>
+                <div class="option" style="--bg: url('/frontend/assets/images/avatars/vini.jpg');" data-name="Vinícius Jr.">
+                    <div class="legend-name-toast"><span class="legend-name-text">Vinícius Jr.</span></div>
+                </div>
+                <div class="option" style="--bg: url('/frontend/assets/images/avatars/bellingham.jpg');" data-name="Jude Bellingham">
+                    <div class="legend-name-toast"><span class="legend-name-text">Jude Bellingham</span></div>
+                </div>
+                <div class="option" style="--bg: url('/frontend/assets/images/avatars/mbappe.jpg');" data-name="Kylian Mbappé">
+                    <div class="legend-name-toast"><span class="legend-name-text">Kylian Mbappé</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="features-container">
+                <div class="section-header">
+                    
+                    <h2 class="split-reveal"><span class="t-left" id="featuresTextLeft">Master the</span> <br><span class="gold-gradient" id="featuresTextRight">Draft Engine</span></h2>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-item scouting"><div class="bento-content"><span class="card-tag">AI Powered</span><h3>Smart Assistant</h3><p>Upload your roster and let our AI suggest the perfect starting XI for any playstyle.</p></div></div>
+                    <div class="bento-item real-time"><div class="bento-content"><h3>Loot System</h3><p>Obtain rare player cards through milestones, achievements, and secret chests.</p></div><div class="live-indicator"><span class="dot"></span> NEW DROP</div></div>
+                    <div class="bento-item prediction"><div class="bento-content"><h3>H2H Comparison</h3><p>Directly pit your squad's stats against friends or rivals in real-time comparison mode.</p></div></div>
+                    <div class="bento-item tactical"><div class="bento-content"><h3>Manager Hub</h3><p>Post your tactical innovations, comment on builds, and build your social following.</p></div></div>
+                    <div class="bento-item market"><div class="bento-content"><h3>Data analytics Hub</h3><p>Track and analyse performance metrics.Refine strategies with real-time feedback and tacktical heatmaps</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="parallax-showcase" class="parallax-showcase">
+            <div class="para-layer para-back">
+                <span class="para-text hollow-text" id="paraTextLeft">Goal</span>
+            </div>
+            
+            <div class="para-layer para-middle">
+                <img src="/frontend/assets/images/avatars/movingimage.png" id="paraPlayerImg" class="para-player-img" alt="Leaping Player">
+                <img src="/frontend/assets/images/avatars/ball.png" id="paraShotBall" class="para-shot-ball" alt="Soccer Ball">
+            </div>
+            
+            <div class="para-layer para-front">
+                <span class="para-text solid-text" id="paraTextRight">United</span>
+            </div>
+        </section>
+
+        <section id="arena" class="arena-showcase">
+            <div class="arena-container">
+                <div class="arena-header">
+                  
+                    <h2 class="split-reveal"><span class="t-left" id="arenaTextLeft">Compare.</span> <span class="gold-gradient" id="arenaTextRight">Conquer.</span></h2>
+                    <p id="arenaSubtext">Your tactical vision vs. the world. Compare card tiers, chemistry links, and raw power.</p>
+                </div>
+                <div class="battle-display">
+                    <div class="squad-card your-squad">
+                        <div class="squad-overlay"><span class="squad-label">YOUR XI</span><div class="squad-rank">Rank #14</div></div>
+                        <div class="squad-visual">
+                            <div class="pitch-hud">
+                                <div class="hud-corner tl"></div>
+                                <div class="hud-corner tr"></div>
+                                <div class="hud-corner bl"></div>
+                                <div class="hud-corner br"></div>
+                                <div class="hud-scanline"></div>
+                            </div>
+                            <div class="pitch-lines"></div>
+                            <div class="player-node def" style="bottom:0%;left:50%"><span>11</span></div>
+                            <div class="player-node def" style="bottom:27%;left:20%"><span>2</span></div>
+                            <div class="player-node def" style="bottom:24%;left:50%"><span>4</span></div>
+                            <div class="player-node def" style="bottom:27%;left:80%"><span>30</span></div>
+                            <div class="player-node mid" style="bottom:50%;left:15%"><span>99</span></div>
+                            <div class="player-node mid" style="bottom:45%;left:40%"><span>8</span></div>
+                            <div class="player-node mid" style="bottom:45%;left:60%"><span>18</span></div>
+                            <div class="player-node mid" style="bottom:50%;left:85%"><span>8</span></div>
+                            <div class="player-node atk" style="top:15%;left:20%"><span>11</span></div>
+                            <div class="player-node atk" style="top:10%;left:50%"><span>7</span></div>
+                            <div class="player-node atk" style="top:15%;left:80%"><span>22</span></div>
+                        </div>
+                        <div class="squad-stats">
+                            <div class="stat-item"><span>ATK</span><strong>92</strong></div>
+                            <div class="stat-item"><span>MID</span><strong>88</strong></div>
+                            <div class="stat-item"><span>DEF</span><strong>95</strong></div>
+                        </div>
+                    </div>
+                    <div class="vs-divider">
+                        <div class="vs-circle">VS</div>
+                        <div class="win-meter"><div class="win-fill" style="height:65%"></div></div>
+                        <span class="win-pct">65% Win</span>
+                    </div>
+                    <div class="squad-card rival-squad">
+                        <div class="squad-overlay"><span class="squad-label">TOP RIVAL</span><div class="squad-rank">Rank #01</div></div>
+                        <div class="squad-visual rival-bg">
+                            <div class="pitch-lines"></div>
+                            <div class="player-node1" style="bottom:0%;left:50%"><span>18</span></div>
+                            <div class="player-node1" style="bottom:27%;left:25%"><span>2</span></div>
+                            <div class="player-node1" style="bottom:24%;left:50%"><span>22</span></div>
+                            <div class="player-node1" style="bottom:27%;left:75%"><span>21</span></div>
+                            <div class="player-node1" style="bottom:50%;left:10%"><span>8</span></div>
+                            <div class="player-node1" style="bottom:48%;left:32%"><span>28</span></div>
+                            <div class="player-node1" style="bottom:45%;left:50%"><span>31</span></div>
+                            <div class="player-node1" style="bottom:48%;left:68%"><span>5</span></div>
+                            <div class="player-node1" style="bottom:50%;left:90%"><span>7</span></div>
+                            <div class="player-node1" style="top:19%;left:35%"><span>20</span></div>
+                            <div class="player-node1" style="top:19%;left:65%"><span>9</span></div>
+                        </div>
+                        <div class="squad-stats">
+                            <div class="stat-item"><span>ATK</span><strong>98</strong></div>
+                            <div class="stat-item"><span>MID</span><strong>94</strong></div>
+                            <div class="stat-item"><span>DEF</span><strong>91</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="testimonials-container">
+                <h2 class="split-reveal"><span class="gold-gradient" id="testimonialsTextLeft">Manager</span> <span class="gold-gradient" id="testimonialsTextRight">Activity</span></h2>
+                <div class="testimonials-wrapper">
+                    <div class="comment-card tier-1">
+                        <div class="comment-header"><div class="author-meta"><div class="avatar-circle">CR7</div><div><h4>TacticsMaster</h4><p>Elite League</p></div></div><span class="verified-badge">⭐ Top Builder</span></div>
+                        <p class="comment-body">"Just used the AI Assistant to fix my back line. It recommended the Rare Van Dijk card I pulled from today's chest—Chemistry is now 100!"</p>
+                        <div class="comment-footer"><span class="timestamp">24 Likes • 5 Comments</span></div>
+                    </div>
+                    <div class="comment-card tier-2">
+                        <div class="comment-header"><div class="author-meta"><div class="avatar-circle">LM10</div><div><h4>LeoFan99</h4><p>Pro Scout</p></div></div></div>
+                        <p class="comment-body">"Can someone check my squad? I'm trying to compare with 'GamerX' but his attack stat is insane. Anyone know which chest has the Legend cards?"</p>
+                        <div class="comment-footer"><span class="timestamp">12 Likes • 18 Comments</span></div>
+                    </div>
+                    <div class="comment-card tier-1">
+                        <div class="comment-header"><div class="author-meta"><div class="avatar-circle">DM</div><div><h4>DraftKing</h4><p>Master Tier</p></div></div><span class="verified-badge">🏆 Champion</span></div>
+                        <p class="comment-body">"Finally hit Rank #10! The comparison tool really helped me see where my midfield was lacking against the top players. Love this community."</p>
+                        <div class="comment-footer"><span class="timestamp">56 Likes • 2 Comments</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-brand-col">
+                        <div class="logo">FootyCraft</div>
+                        <p class="footer-tagline">Crafting the future of football management through collection, community, and intelligence.</p>
+                        <div class="social-wrapper">
+                            <a href="#" class="social-icon"><span>FB</span></a>
+                            <a href="#" class="social-icon"><span>TW</span></a>
+                            <a href="#" class="social-icon"><span>IG</span></a>
+                            <a href="#" class="social-icon"><span>LI</span></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-grid">
+                        <div class="link-group"><h4>Forge</h4><ul><li><a href="#">AI Assistant</a></li><li><a href="#">Open Chests</a></li><li><a href="#">Card Library</a></li><li><a href="#">Leaderboards</a></li></ul></div>
+                        <div class="link-group"><h4>Community</h4><ul><li><a href="#">Social Feed</a></li><li><a href="#">H2H Arena</a></li><li><a href="#">Trading</a></li><li><a href="#">Contact</a></li></ul></div>
+                        <div class="link-group"><h4>Legal</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li></ul></div>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4>Join the Forge</h4>
+                        <p>Get notified about new legendary card drops.</p>
+                        <form class="newsletter-form"><input type="email" placeholder="Email address" required><button type="submit">Join</button></form>
+                    </div>
+                </div>
+                <div class="footer-bottom"><div class="bottom-legal"><span>&copy; 2026 FootyCraft, All rights reserved.</span></div></div>
+            </div>
+        </footer>
+
+    </div><script src="/frontend/views/home/js/home.js"></script>
+
+    <div id="maintenanceOverlay" style="display: none; position: fixed; inset: 0; background: rgba(10, 10, 15, 0.95); z-index: 9999; flex-direction: column; justify-content: center; align-items: center; text-align: center; backdrop-filter: blur(10px);">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <h1 style="color: white; font-family: 'Outfit', sans-serif; font-size: 3rem; margin-bottom: 15px;">System Maintenance</h1>
+        <p style="color: #9ca3af; font-size: 1.2rem; max-width: 500px; line-height: 1.6;">FootyCraft is currently undergoing scheduled maintenance. We're upgrading the pitch to bring you an even better experience.<br><br>Only staff can log in right now. Please check back soon!</p>
+        <button onclick="window.location.reload()" style="margin-top: 40px; padding: 12px 30px; background: #f59e0b; color: black; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Refresh Page</button>
+    </div>
+
+</body>
+</html>

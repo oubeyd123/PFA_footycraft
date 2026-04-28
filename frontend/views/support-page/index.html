@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootyCraft - Support Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="stylesheet" href="/frontend/shared/css/notifications.css">
+    <link rel="stylesheet" href="/frontend/shared/css/player-cards.css">
+</head>
+<body class="dark-theme">
+    <aside class="fc-sidebar">
+        <div class="fc-sidebar-header">
+            <i class="fa-solid fa-headset" style="font-size: 30px; color: var(--neon-green);"></i>
+            <h1 class="fc-logo-text">FootyCraft <span class="fc-neon-text">SUPPORT</span></h1>
+        </div>
+        <nav class="fc-nav">
+            <ul class="fc-nav-list" id="sidebarMenu">
+                <li class="fc-nav-item" data-target="dashboard"><i class="fa-solid fa-chart-line fc-nav-icon"></i><span class="fc-nav-label">Dashboard</span></li>
+                <li class="fc-nav-item" data-target="users"><i class="fa-solid fa-users fc-nav-icon"></i><span class="fc-nav-label">Users</span></li>
+                <li class="fc-nav-item" data-target="community"><i class="fa-solid fa-comments fc-nav-icon"></i><span class="fc-nav-label">Community</span></li>
+                <li class="fc-nav-item" data-target="support"><i class="fa-solid fa-headset fc-nav-icon"></i><span class="fc-nav-label">Tickets</span></li>
+                <li class="fc-nav-item" data-target="reports"><i class="fa-solid fa-flag fc-nav-icon"></i><span class="fc-nav-label">Reports</span></li>
+                <li class="fc-nav-item" data-target="settings"><i class="fa-solid fa-gear fc-nav-icon"></i><span class="fc-nav-label">Settings</span></li>
+            </ul>
+        </nav>
+        <div class="fc-sidebar-footer">
+            <div class="fc-nav-item logout-btn">
+                <i class="fa-solid fa-right-from-bracket fc-nav-icon"></i>
+                <span class="fc-nav-label">Logout</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="fc-main-wrapper">
+        <header class="fc-topbar">
+            <div class="fc-breadcrumbs"><h2 id="pageTitle" class="fc-page-title">Dashboard</h2></div>
+            <div class="fc-topbar-actions">
+                <div class="header-actions">
+                    <button id="notif-btn" class="fc-notif-btn" aria-label="Notifications">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span id="notif-badge" class="fc-notif-badge">0</span>
+                    </button>
+                    
+                    <div id="notif-panel" class="fc-notif-panel" aria-hidden="true">
+                        <div class="fc-notif-header">
+                            <div class="fc-notif-header-left">
+                                <h3 class="fc-notif-title">Notifications</h3>
+                                <span id="notif-unread-count" class="fc-notif-count"></span>
+                            </div>
+                            <div class="fc-notif-header-actions">
+                                <button id="notif-mark-read" class="fc-notif-action-btn" title="Mark all as read">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>Read all</span>
+                                </button>
+                                <button id="notif-clear-all" class="fc-notif-action-btn" title="Clear read notifications">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                                    <span>Clear</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="fc-notif-filters" id="notif-filters">
+                            <button class="fc-notif-filter active" data-filter="all">All</button>
+                            <button class="fc-notif-filter" data-filter="admin">Admin</button>
+                            <button class="fc-notif-filter" data-filter="challenge">Challenges</button>
+                            <button class="fc-notif-filter" data-filter="community">Community</button>
+                            <button class="fc-notif-filter" data-filter="system">System</button>
+                        </div>
+                        <div id="notif-list" class="fc-notif-list">
+                            <div class="fc-notif-empty">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                <p>Loading notifications...</p>
+                            </div>
+                        </div>
+                        <div class="fc-notif-footer">
+                            <span class="fc-notif-footer-label">Quick action</span>
+                            <button id="notif-logout" class="fc-notif-logout-btn">Log out</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fc-admin-profile">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); background: rgba(212, 175, 55, 0.15); display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; font-size: 14px;">SU</div>
+                    <div class="fc-profile-info">
+                        <span class="fc-profile-name">Support User</span>
+                        <span class="fc-profile-role">SUPPORT</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="fc-content-area">
+            <section id="dashboard" class="fc-page-section">
+                <div class="fc-hero-banner mb-4">
+                    <div class="fc-hero-content">
+                        <h2>Welcome back, <span class="fc-neon-text">Support</span></h2>
+                        <p class="text-muted">Live moderation, community, and ticket operations.</p>
+                    </div>
+                    <div class="fc-hero-bg"></div>
+                </div>
+                <div class="row g-4 mb-4">
+                    <div class="col-12 col-md-6 col-xl-3"><div class="fc-bento-card gold-glow h-100"><div class="fc-bento-body"><h3>Total Users</h3><p class="fc-bento-value" id="stat-total-users">0</p></div></div></div>
+                    <div class="col-12 col-md-6 col-xl-3"><div class="fc-bento-card blue-glow h-100"><div class="fc-bento-body"><h3>Active Players</h3><p class="fc-bento-value" id="stat-active-players">0</p></div></div></div>
+                    <div class="col-12 col-md-6 col-xl-3"><div class="fc-bento-card teal-glow h-100"><div class="fc-bento-body"><h3>Total Matches</h3><p class="fc-bento-value" id="stat-total-matches">0</p></div></div></div>
+                    <div class="col-12 col-md-6 col-xl-3"><div class="fc-bento-card red-glow h-100"><div class="fc-bento-body"><h3>Pending Reports</h3><p class="fc-bento-value text-danger" id="stat-pending-reports">0</p></div></div></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12 col-xl-8">
+                        <div class="fc-panel h-100 d-flex flex-column mb-0" id="activityChartPanel">
+                            <div class="fc-panel-header"><h3 class="fc-panel-title">Platform Activity</h3><button class="fc-btn-icon" id="expandChartBtn" title="Toggle Fullscreen"><i class="fa-solid fa-expand"></i></button></div>
+                            <div id="activityChartContainer" class="fc-chart-glass flex-grow-1 position-relative d-flex align-items-end justify-content-between p-4" style="min-height: 250px; gap: 2%;"><div class="text-center w-100 text-muted py-5">Loading activity data...</div></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                        <div class="fc-panel h-100 mb-0">
+                            <div class="fc-panel-header mb-4"><h3 class="fc-panel-title">Top Contributors</h3></div>
+                            <div class="d-flex flex-column gap-2" id="topContributorsList"><div class="text-center text-muted py-3">Loading contributors...</div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="fc-page-section">
+                <div class="fc-table-header-actions">
+                    <div class="fc-search-wrap fc-glow-focus"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search by name, ID or email..." class="fc-search-input"></div>
+                    <select id="usersStatusFilter" class="fc-input" style="max-width: 180px;">
+                        <option value="all" selected>All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="timeout">Timeout</option>
+                        <option value="banned">Banned</option>
+                    </select>
+                </div>
+                <div class="fc-table-container">
+                    <table class="fc-futuristic-table" id="usersTable">
+                        <thead><tr><th>ID</th><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody><tr><td colspan="6" class="text-center text-muted py-4">Loading users...</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="community" class="fc-page-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div><h2 class="fc-page-title">Community Hub</h2><p class="text-muted mt-1">Monitor discussions and moderate content.</p></div>
+                    <div class="d-flex gap-3">
+                        <div class="fc-search-wrap fc-glow-focus m-0" style="width: 250px;"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search posts..." class="fc-search-input py-2"></div>
+                        <button class="fc-btn fc-btn-primary fc-glow-btn" id="openNewAnnouncementModal"><i class="fa-solid fa-pen-to-square"></i> New Announcement</button>
+                    </div>
+                </div>
+                <div class="glass-pill-container">
+                    <button class="glass-pill active" onclick="filterCommunityPosts('all')">All Posts</button>
+                    <button class="glass-pill" onclick="filterCommunityPosts('reported')">Reported</button>
+                    <button class="glass-pill" onclick="filterCommunityPosts('announcements')">Announcements</button>
+                </div>
+                <div class="fc-community-feed w-100 m-0 p-0" style="max-width: 100%;"></div>
+            </section>
+
+            <section id="support" class="fc-page-section">
+                <div class="fc-support-container">
+                    <div class="fc-ticket-list">
+                        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+                            <h3 class="fc-support-title" style="margin:0;">Tickets</h3>
+                            <select id="adminSupportStatus" class="fc-input" style="max-width:140px;">
+                                <option value="open" selected>Open</option>
+                                <option value="closed">Closed</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                        <div id="adminSupportTicketList" style="display:flex; flex-direction:column; gap:12px;"></div>
+                    </div>
+                    <div class="fc-ticket-chat">
+                        <div class="fc-chat-header">
+                            <div>
+                                <h3 id="adminSupportTitle">Select a ticket</h3>
+                                <span id="adminSupportMeta">No ticket selected</span>
+                            </div>
+                            <button id="adminResolveTicketBtn" class="fc-btn fc-btn-outline fc-btn-resolve" disabled><i class="fa-solid fa-check"></i> Resolve Ticket</button>
+                        </div>
+                        <div id="adminSupportMessages" class="fc-chat-messages"><div class="fc-message-bubble system"><div class="fc-msg-content"><p>Select a ticket from the left to start helping the user.</p></div></div></div>
+                        <form id="adminSupportReplyForm" class="fc-chat-input-area">
+                            <textarea id="adminSupportReplyInput" placeholder="Type your reply..." disabled></textarea>
+                            <button id="adminSupportSendBtn" class="fc-btn fc-btn-primary fc-glow-btn" type="submit" disabled><i class="fa-regular fa-paper-plane"></i> Send Reply</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reports" class="fc-page-section">
+                <div class="fc-panel">
+                    <div class="fc-panel-header"><h3 class="fc-panel-title">Moderation Queue</h3></div>
+                    <div class="fc-table-container">
+                        <table class="fc-futuristic-table">
+                            <thead><tr><th>Content</th><th>Type</th><th>Reason</th><th>Reporter</th><th>Actions</th></tr></thead>
+                            <tbody id="reportsTableBody"><tr><td colspan="5" class="text-center text-muted py-4">Loading moderation queue...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" class="fc-page-section">
+                <div class="fc-panel fc-panel-small">
+                    <h3 class="fc-panel-title">Support Configuration</h3>
+                    <div class="fc-settings-group">
+                        <label class="fc-toggle-switch"><input type="checkbox" id="themeToggle" checked><span class="fc-slider"></span><span class="fc-toggle-label">Dark Theme Active</span></label>
+                        <label class="fc-toggle-switch"><input type="checkbox" checked><span class="fc-slider"></span><span class="fc-toggle-label">Enable Push Notifications</span></label>
+                    </div>
+                    <h3 class="fc-panel-title" style="margin-top: 30px;">Profile Settings</h3>
+                    <div class="fc-form-group"><label>Name</label><input type="text" class="fc-input" id="settingsNameInput"></div>
+                    <div class="fc-form-group"><label>Email Address</label><input type="email" class="fc-input" value="support@footycraft.com"></div>
+                    <button class="fc-btn fc-btn-primary fc-glow-btn">Save Changes</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="timeoutUserModal" class="fc-modal-overlay"><div class="fc-alert-modal alert-timeout"><div class="fc-alert-icon-box"><i class="fa-solid fa-clock"></i></div><h2 class="fc-alert-title">TIMEOUT USER</h2><p class="fc-alert-text">How many hours should this user be timed out?</p><div class="fc-alert-input-wrapper"><input type="number" id="timeoutHours" class="fc-alert-input" value="24" min="1" max="720"></div><div class="fc-alert-actions"><button class="fc-alert-btn fc-alert-btn-cancel" id="cancelTimeoutBtn">Cancel</button><button class="fc-alert-btn fc-alert-btn-confirm" id="confirmTimeoutBtn">Apply Timeout</button></div></div></div>
+    <div id="banUserModal" class="fc-modal-overlay"><div class="fc-alert-modal alert-ban"><div class="fc-alert-icon-box"><i class="fa-solid fa-gavel"></i></div><h2 class="fc-alert-title">BAN USER</h2><p class="fc-alert-text">This user will be permanently banned.<br>Are you sure?</p><div class="fc-alert-actions"><button class="fc-alert-btn fc-alert-btn-cancel" id="cancelBanBtn">Cancel</button><button class="fc-alert-btn fc-alert-btn-confirm" id="confirmBanBtn">Ban</button></div></div></div>
+    <div id="deleteUserModal" class="fc-modal-overlay"><div class="fc-alert-modal alert-delete"><div class="fc-alert-icon-box"><i class="fa-solid fa-triangle-exclamation"></i></div><h2 class="fc-alert-title">DELETE USER</h2><p class="fc-alert-text">This user will be permanently removed.<br>Are you sure?</p><div class="fc-alert-actions"><button class="fc-alert-btn fc-alert-btn-cancel" id="cancelDeleteBtn">Cancel</button><button class="fc-alert-btn fc-alert-btn-confirm" id="confirmDeleteBtn">Delete</button></div></div></div>
+    <div id="unbanUserModal" class="fc-modal-overlay"><div class="fc-alert-modal alert-unban"><div class="fc-alert-icon-box"><i class="fa-solid fa-unlock"></i></div><h2 class="fc-alert-title">REMOVE RESTRICTION</h2><p class="fc-alert-text">This will remove the ban/timeout restriction.<br>Are you sure?</p><div class="fc-alert-actions"><button class="fc-alert-btn fc-alert-btn-cancel" id="cancelUnbanBtn">Cancel</button><button class="fc-alert-btn fc-alert-btn-confirm" id="confirmUnbanBtn">Unban</button></div></div></div>
+    <div id="editRoleModal" class="fc-modal-overlay"><div class="fc-alert-modal alert-edit-role"><div class="fc-alert-icon-box"><i class="fa-solid fa-user-shield"></i></div><h2 class="fc-alert-title">EDIT ROLE</h2><p class="fc-alert-text">Support can request role changes. Admin approval is required.</p><div class="fc-alert-input-wrapper"><label style="font-size: 13px; color: #9ca3af; display: block; text-align: left; margin-bottom: 8px;">Staff Member</label><input type="text" id="editRoleUsername" class="fc-alert-input" readonly style="margin-bottom: 12px; opacity: 0.6;"><label style="font-size: 13px; color: #9ca3af; display: block; text-align: left; margin-bottom: 8px;">Role</label><select id="editRoleSelect" class="fc-alert-input"><option value="Administrator">Administrator</option><option value="Support">Support</option><option value="Moderator">Moderator</option></select></div><div class="fc-alert-actions"><button class="fc-alert-btn fc-alert-btn-cancel" id="cancelEditRoleBtn">Cancel</button><button class="fc-alert-btn fc-alert-btn-confirm" id="confirmEditRoleBtn">Save Role</button></div></div></div>
+
+    <div id="newAnnouncementModal" class="fc-modal-overlay">
+        <div class="fc-modal">
+            <div class="fc-modal-header">
+                <div class="d-flex align-items-center gap-3" style="flex: 1;"><h2 style="margin: 0;"><i class="fa-solid fa-megaphone"></i> NEW ANNOUNCEMENT</h2></div>
+                <button class="fc-modal-close" id="closeNewAnnouncementModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="fc-modal-body">
+                <form id="newAnnouncementForm">
+                    <div class="mb-3"><label class="form-label">Title</label><input id="announcementTitle" type="text" class="fc-input" required></div>
+                    <div class="mb-0"><label class="form-label">Message</label><textarea id="announcementBody" class="fc-input" rows="5" required></textarea></div>
+                </form>
+            </div>
+            <div class="fc-modal-footer"><button class="fc-btn fc-btn-outline" id="cancelNewAnnouncement">Cancel</button><button class="fc-btn" id="postAnnouncementBtn">Post Announcement</button></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/frontend/shared/js/api.js?v=20260428d"></script>
+    <script src="/frontend/shared/js/ui-alerts.js?v=20260421a"></script>
+    <script src="/frontend/shared/js/player-cards.js"></script>
+    <script src="/frontend/shared/js/notifications.js?v=20260421a"></script>
+    <script>document.addEventListener("DOMContentLoaded", () => { if (window.initNotifications) window.initNotifications(); });</script>
+    <script src="js/support.js"></script>
+</body>
+</html>
